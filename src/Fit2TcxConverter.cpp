@@ -310,13 +310,22 @@ void Fit2TcxConverter::handle_Lap(FitMsg_Lap *lap) {
 			this->tcxActivity->setSportType(TrainingCenterDatabase::Running);
 			this->tcxLap->setCadenceSensorType(TrainingCenterDatabase::Footpod);
 			setTrackpointCadenceType(TrainingCenterDatabase::Footpod);
-
 		    if (lap->getTotalCycles() != FIT_CYCLES_INVALID) {
 		        ss.str("");
 		        ss << (lap->getTotalCycles() * 2);
 		        this->tcxLap->setSteps(ss.str());
 		    }
 
+			break;
+		case SPORT_WALKING:
+			this->tcxActivity->setSportType(TrainingCenterDatabase::Walking);
+			this->tcxLap->setCadenceSensorType(TrainingCenterDatabase::Footpod);
+			setTrackpointCadenceType(TrainingCenterDatabase::Footpod);
+		    if (lap->getTotalCycles() != FIT_CYCLES_INVALID) {
+		        ss.str("");
+		        ss << (lap->getTotalCycles() * 2);
+		        this->tcxLap->setSteps(ss.str());
+		    }
 			break;
 		default:
 			break;
@@ -456,6 +465,9 @@ void Fit2TcxConverter::handle_Session(FitMsg_Session *session) {
 			break;
 		case SPORT_RUNNING:
 			this->tcxActivity->setSportType(TrainingCenterDatabase::Running);
+			break;
+		case SPORT_WALKING:
+			this->tcxActivity->setSportType(TrainingCenterDatabase::Walking);
 			break;
 		default:
 			this->tcxActivity->setSportType(TrainingCenterDatabase::Other);

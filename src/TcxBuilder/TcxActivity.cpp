@@ -53,6 +53,9 @@ TiXmlElement * TcxActivity::getTiXml(bool readTrackData) {
         case TrainingCenterDatabase::Biking:
             xmlActivity->SetAttribute("Sport","Biking");
             break;
+        case TrainingCenterDatabase::Walking:
+            xmlActivity->SetAttribute("Sport","Walking");
+            break;
         default:
             xmlActivity->SetAttribute("Sport","Other");
             break;
