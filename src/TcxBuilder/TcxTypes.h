@@ -57,6 +57,7 @@ class TrainingCenterDatabase {
         {
             Running,
             Biking,
+            Walking,
             Other
         };
 
