@@ -32,6 +32,7 @@ enum FIT_SPORT {
 	SPORT_TENNIS=8,
 	SPORT_AMERICAN_FOOTBALL=9,
 	SPORT_TRAINING=10,
+	SPORT_WALKING=11,
 	SPORT_ALL=254, // All is for goals only to include all sports.
 	SPORT_INVALID=0xFF,
 };
